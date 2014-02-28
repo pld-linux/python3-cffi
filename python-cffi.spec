@@ -26,6 +26,7 @@ BuildRequires:	python3-devel >= 3.2
 %{?with_doc:BuildRequires:	sphinx-pdg}
 BuildRequires:	rpm-pythonprov
 Requires:	python-modules
+Requires:	python-pycparser
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,6 +49,7 @@ Summary:	Foreign Function Interface for Python 3 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 3 wywołującego kod w C
 Group:		Libraries/Python
 Requires:	python3-modules
+Requires:	python3-pycparser
 
 %description -n python3-cffi
 Foreign Function Interface for Python calling C code. The aim of this
@@ -122,6 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{?with_doc:%doc doc/build/html/{*.html,*.js,_static}}
 %attr(755,root,root) %{py3_sitedir}/_cffi_backend.cpython-*.so
+%dir %{py3_sitedir}/cffi
 %{py3_sitedir}/cffi/*.py
 %{py3_sitedir}/cffi/__pycache__
 %{py3_sitedir}/cffi-%{version}-py*.egg-info
