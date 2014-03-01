@@ -17,7 +17,6 @@ URL:		http://cffi.readthedocs.org/
 %if %{with python2}
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel >= 1:2.6
-BuildRequires:	rpmbuild(macros) >= 1.219
 %endif
 %if %{with python3}
 BuildRequires:	python3 >= 3.2
@@ -25,6 +24,7 @@ BuildRequires:	python3-devel >= 3.2
 %endif
 %{?with_doc:BuildRequires:	sphinx-pdg}
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.612
 Requires:	python-modules
 Requires:	python-pycparser
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
