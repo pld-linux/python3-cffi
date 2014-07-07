@@ -7,24 +7,26 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	0.8.2
+Version:	0.8.6
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	37fc88c62f40d04e8a18192433f951ec
+# Source0-md5:	474b5a68299a6f05009171de1dc91be6
 URL:		http://cffi.readthedocs.org/
+BuildRequires:	libffi-devel >= 3
+BuildRequires:	pkgconfig
 %if %{with python2}
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel >= 1:2.6
 %endif
 %if %{with python3}
-BuildRequires:	python3 >= 3.2
-BuildRequires:	python3-devel >= 3.2
+BuildRequires:	python3 >= 1:3.2
+BuildRequires:	python3-devel >= 1:3.2
 %endif
-%{?with_doc:BuildRequires:	sphinx-pdg}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.612
+%{?with_doc:BuildRequires:	sphinx-pdg}
 Requires:	python-modules
 Requires:	python-pycparser
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -112,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%{?with_doc:%doc doc/build/html/{*.html,*.js,_static}}
+%doc LICENSE %{?with_doc:doc/build/html/{*.html,*.js,_static}}
 %attr(755,root,root) %{py_sitedir}/_cffi_backend.so
 %dir %{py_sitedir}/cffi
 %{py_sitedir}/cffi/*.py[co]
@@ -122,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-cffi
 %defattr(644,root,root,755)
-%{?with_doc:%doc doc/build/html/{*.html,*.js,_static}}
+%doc LICENSE %{?with_doc:doc/build/html/{*.html,*.js,_static}}
 %attr(755,root,root) %{py3_sitedir}/_cffi_backend.cpython-*.so
 %dir %{py3_sitedir}/cffi
 %{py3_sitedir}/cffi/*.py
