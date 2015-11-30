@@ -8,7 +8,7 @@ Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
 Version:	1.2.1
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/pypi/cffi
@@ -74,12 +74,10 @@ Ten pakiet zawiera moduł Pythona 3.
 
 %build
 %if %{with python2}
-%py_build \
-	--build-base build-2
+%py_build
 %endif
 %if %{with python3}
-%py3_build \
-	--build-base build-3
+%py3_build
 %endif
 
 %if %{with doc}
@@ -90,23 +88,13 @@ Ten pakiet zawiera moduł Pythona 3.
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%{__python} setup.py \
-	build \
-		--build-base build-2 \
-	install \
-		--root=$RPM_BUILD_ROOT \
-		--optimize=2
+%py_install
 
 %py_postclean
 %endif
 
 %if %{with python3}
-%{__python3} setup.py \
-	build \
-		--build-base build-3 \
-	install \
-		--root=$RPM_BUILD_ROOT \
-		--optimize=2
+%py3_install
 %endif
 
 %clean
