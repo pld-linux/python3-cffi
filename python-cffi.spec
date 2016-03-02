@@ -7,13 +7,13 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.2.1
-Release:	4
+Version:	1.5.2
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/pypi/cffi
 Source0:	https://pypi.python.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	faca1e420e80433db409bb1bdd0a3f45
+# Source0-md5:	fa766133f7299464c8bf857e0c966a82
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
@@ -107,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py_sitedir}/_cffi_backend.so
 %dir %{py_sitedir}/cffi
 %{py_sitedir}/cffi/_cffi_include.h
+%{py_sitedir}/cffi/_embedding.h
 %{py_sitedir}/cffi/parse_c_type.h
 %{py_sitedir}/cffi/*.py[co]
 %{py_sitedir}/cffi-%{version}-py*.egg-info
@@ -119,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py3_sitedir}/_cffi_backend.cpython-*.so
 %dir %{py3_sitedir}/cffi
 %{py3_sitedir}/cffi/_cffi_include.h
+%{py3_sitedir}/cffi/_embedding.h
 %{py3_sitedir}/cffi/parse_c_type.h
 %{py3_sitedir}/cffi/*.py
 %{py3_sitedir}/cffi/__pycache__
