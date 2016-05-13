@@ -7,13 +7,13 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.5.2
+Version:	1.6.0
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/pypi/cffi
-Source0:	https://pypi.python.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	fa766133f7299464c8bf857e0c966a82
+Source0:	https://pypi.python.org/packages/b6/98/11feff87072e2e640fb8320712b781eccdef05d588618915236b32289d5a/cffi-%{version}.tar.gz
+# Source0-md5:	2fae9160991afefb20ff0fbde3b14faf
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
