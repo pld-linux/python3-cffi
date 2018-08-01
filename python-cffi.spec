@@ -16,7 +16,6 @@ Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
 # Source0-md5:	ac8492f4ad952360737413e82d661908
-Patch0:		%{name}-tests.patch
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
@@ -96,14 +95,13 @@ Dokumentacja API modułu Pythona CFFI.
 
 %prep
 %setup -q -n cffi-%{version}
-%patch0 -p1
 
 %build
 %if %{with python2}
 %py_build
 
 %if %{with tests}
-PYTHONPATH=$(echo build-2/lib.linux-*) \
+PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
 py.test-2 --ignore=testing/embedding/test_thread.py c testing
 %endif
 %endif
@@ -112,7 +110,7 @@ py.test-2 --ignore=testing/embedding/test_thread.py c testing
 %py3_build
 
 %if %{with tests}
-PYTHONPATH=$(echo build-3/lib.linux-*) \
+PYTHONPATH=$(pwd):$(echo $(pwd)/build-3/lib.linux-*) \
 py.test-3 --ignore=testing/embedding/test_thread.py c testing
 %endif
 %endif
