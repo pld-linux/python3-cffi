@@ -9,13 +9,13 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.11.5
-Release:	3
+Version:	1.12.3
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	ac8492f4ad952360737413e82d661908
+# Source0-md5:	35ad1f9e1003cac9404c1493eb10d7f5
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
@@ -102,7 +102,7 @@ Dokumentacja API modułu Pythona CFFI.
 
 %if %{with tests}
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
-py.test-2 --ignore=testing/embedding/test_thread.py c testing
+py.test-2 c testing
 %endif
 %endif
 
@@ -111,7 +111,7 @@ py.test-2 --ignore=testing/embedding/test_thread.py c testing
 
 %if %{with tests}
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-3/lib.linux-*) \
-py.test-3 --ignore=testing/embedding/test_thread.py c testing
+py.test-3 c testing
 %endif
 %endif
 
