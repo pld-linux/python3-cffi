@@ -1,4 +1,3 @@
-# TODO: examine test_thread.py failures and remove --ignore from py.test invocations
 #
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
@@ -9,13 +8,13 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.13.2
+Version:	1.14.0
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	652203cf99faa254efff7fab23c2f3a2
+# Source0-md5:	74845f8d2b7b583dd9a3574f402edf39
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
