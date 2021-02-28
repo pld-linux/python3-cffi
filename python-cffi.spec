@@ -82,9 +82,7 @@ Ten pakiet zawiera moduł Pythona 3.
 Summary:	API documentation for Python CFFI module
 Summary(pl.UTF-8):	Dokumentacja API modułu Pythona CFFI
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for Python CFFI module.
