@@ -8,13 +8,13 @@
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.14.4
-Release:	4
+Version:	1.15.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	ad3d8537b1516bad6bcdc36c458788be
+# Source0-md5:	f3a3f26cd3335fc597479c9475da0a0b
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
@@ -24,6 +24,7 @@ BuildRequires:	python-devel >= 1:2.6
 %if %{with tests}
 BuildRequires:	python-pycparser
 BuildRequires:	python-pytest
+BuildRequires:	virtualenv
 %endif
 %endif
 %if %{with python3}
@@ -32,6 +33,7 @@ BuildRequires:	python3-devel >= 1:3.2
 %if %{with tests}
 BuildRequires:	python3-pycparser
 BuildRequires:	python3-pytest
+BuildRequires:	virtualenv
 %endif
 %endif
 BuildRequires:	rpm-pythonprov
@@ -98,8 +100,9 @@ Dokumentacja API modułu Pythona CFFI.
 %py_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
-py.test-2 c testing
+%{__python} -m pytest c testing
 %endif
 %endif
 
@@ -107,8 +110,9 @@ py.test-2 c testing
 %py3_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-3/lib.linux-*) \
-py.test-3 c testing
+%{__python3} -m pytest c testing
 %endif
 %endif
 
