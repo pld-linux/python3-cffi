@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig
 %if %{with python2}
 BuildRequires:	python >= 1:2.6
 BuildRequires:	python-devel >= 1:2.6
+BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-pycparser
 BuildRequires:	python-pytest
@@ -30,6 +31,7 @@ BuildRequires:	virtualenv
 %if %{with python3}
 BuildRequires:	python3 >= 1:3.2
 BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-pycparser
 BuildRequires:	python3-pytest
