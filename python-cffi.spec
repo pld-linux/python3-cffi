@@ -25,6 +25,7 @@ BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-pycparser
 BuildRequires:	python-pytest
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	virtualenv
 %endif
 %endif
