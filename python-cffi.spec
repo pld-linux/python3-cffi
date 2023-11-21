@@ -105,7 +105,7 @@ Dokumentacja API modułu Pythona CFFI.
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
-%{__python} -m pytest c testing
+%{__python} -m pytest src/c testing
 %endif
 %endif
 
@@ -115,7 +115,7 @@ PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-3/lib.linux-*) \
-%{__python3} -m pytest c testing
+%{__python3} -m pytest src/c testing
 %endif
 %endif
 
