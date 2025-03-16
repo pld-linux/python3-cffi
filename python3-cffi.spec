@@ -7,7 +7,7 @@ Summary:	Foreign Function Interface for Python 3 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 3 wywołującego kod w C
 Name:		python3-cffi
 Version:	1.17.1
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
