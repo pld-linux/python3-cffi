@@ -61,6 +61,9 @@ Dokumentacja API modułu Pythona CFFI.
 %prep
 %setup -q -n cffi-%{version}
 
+# This is trying to download setuptools on python 3.13 and venv
+%{__mv} testing/cffi0/{,NOT-}test_zintegration.py
+
 %build
 %py3_build
 
