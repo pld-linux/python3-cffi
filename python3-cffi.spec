@@ -16,9 +16,9 @@ Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.t
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
-BuildRequires:	python3 >= 1:3.8
-BuildRequires:	python3-devel >= 1:3.8
-BuildRequires:	python3-setuptools
+BuildRequires:	python3 >= 1:3.9
+BuildRequires:	python3-devel >= 1:3.9
+BuildRequires:	python3-setuptools >= 1:66.1
 %if %{with tests}
 BuildRequires:	python3-pycparser
 BuildRequires:	python3-pytest
@@ -27,7 +27,7 @@ BuildRequires:	virtualenv
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %{?with_doc:BuildRequires:	sphinx-pdg}
-Requires:	python3-modules >= 1:3.8
+Requires:	python3-modules >= 1:3.9
 Requires:	python3-pycparser
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
