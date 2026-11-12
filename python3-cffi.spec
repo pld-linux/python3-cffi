@@ -6,19 +6,19 @@
 Summary:	Foreign Function Interface for Python 3 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 3 wywołującego kod w C
 Name:		python3-cffi
-Version:	2.0.0
+Version:	2.1.1
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	5e897f6251e614f6bd128a73e81801a4
+# Source0-md5:	32f0067c08d797dd28cef1544105caa3
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
-BuildRequires:	python3 >= 1:3.9
-BuildRequires:	python3-devel >= 1:3.9
-BuildRequires:	python3-setuptools >= 1:66.1
+BuildRequires:	python3 >= 1:3.10
+BuildRequires:	python3-devel >= 1:3.10
+BuildRequires:	python3-setuptools >= 1:77.0.3
 %if %{with tests}
 BuildRequires:	python3-pycparser
 BuildRequires:	python3-pytest
@@ -27,8 +27,7 @@ BuildRequires:	virtualenv
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %{?with_doc:BuildRequires:	sphinx-pdg}
-Requires:	python3-modules >= 1:3.9
-Requires:	python3-pycparser
+Requires:	python3-modules >= 1:3.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,6 +62,8 @@ Dokumentacja API modułu Pythona CFFI.
 
 # This is trying to download setuptools on python 3.13 and venv
 %{__mv} testing/cffi0/{,NOT-}test_zintegration.py
+# pip-installs meson-python from PyPI into a venv
+%{__mv} testing/cffi1/{,NOT-}test_cffi_gen_src_meson.py
 
 %build
 %py3_build
@@ -88,6 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n python3-cffi
 %defattr(644,root,root,755)
 %doc AUTHORS LICENSE README.md
+%attr(755,root,root) %{_bindir}/cffi-gen-src
 %attr(755,root,root) %{py3_sitedir}/_cffi_backend.cpython-*.so
 %dir %{py3_sitedir}/cffi
 %{py3_sitedir}/cffi/_cffi_errors.h
